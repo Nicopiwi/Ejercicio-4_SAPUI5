@@ -1,0 +1,115 @@
+<mvc:View controllerName="ejercicio4.ejercicio4.controller.Main" 
+xmlns:mvc="sap.ui.core.mvc" 
+xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout"
+xmlns:f="sap.ui.layout.form"
+displayBlock="true" 
+xmlns="sap.m"
+>
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <f:SimpleForm id="SimpleFormToolbar"
+                    editable="true"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="3"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="4"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="2"
+                    columnsL="1"
+                    columnsM="1"
+                    singleContainerFullSize="false"
+                    ariaLabelledBy="Title1" >
+                    <f:toolbar>
+                        <Toolbar id="TB1">
+                            <Title id="Title1" text="Formulario"/>
+                            <ToolbarSpacer />
+                            <Button press="onPressAlert" icon="sap-icon://action"/>
+                            <Button enabled="{formData>/editable}" press="onPressPanel" icon="sap-icon://drop-down-list"/>
+                        </Toolbar>
+                    </f:toolbar>
+                    <f:content>
+                        <Toolbar ariaLabelledBy="Title2">
+                            <Title id="Title2" text="Datos"/>
+                            <ToolbarSpacer />
+                        </Toolbar>
+                        
+                        <Label text="Nombre y Apellido" />
+                        <Input editable="{formData>/editable}" value="{formData>/nombre}">
+                        <layoutData>
+                                <l:GridData span="XL3 L3 M3 S4" />
+                            </layoutData>
+                        </Input>
+                        <Input editable="{formData>/editable}" value="{formData>/apellido}">
+                            <layoutData>
+                                <l:GridData span="XL3 L3 M3 S4" />
+                            </layoutData>
+                        </Input>
+                        <Label text="DNI " />
+                        <Input editable="{formData>/editable}" type="Number" value="{formData>/dni}"/>
+                        <Label text="Email " />
+                        <Input editable="{formData>/editable}" type="Email" value="{formData>/email}" />
+                        
+                        
+                    </f:content>
+                </f:SimpleForm>
+                <f:Form id="FormDisplay354"
+			editable="false"
+            visible="{formData>/showPanel}"
+            >
+                    <f:layout>
+                        <f:ResponsiveGridLayout
+                            labelSpanXL="3"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="4"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false" />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer>
+                            <f:formElements>
+                                <f:FormElement label="Nombre">
+                                    <f:fields>
+                                        <Text text="{formData>/nombre}" id="nameText"  />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Apellido">
+                                    <f:fields>
+                                        <Text text="{formData>/apellido}" id="apellidoText"  />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="DNI">
+                                    <f:fields>
+                                        <Text text="{formData>/dni}" id="dniText"  />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Email">
+                                    <f:fields>
+                                        <Text text="{formData>/email}" id="emailText"  />
+                                    </f:fields>
+                                </f:FormElement>
+                                
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </VBox>
+
+        </content>
+    </Page>
+			
+</mvc:View>
